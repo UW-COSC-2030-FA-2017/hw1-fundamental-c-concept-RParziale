@@ -27,7 +27,7 @@ int main()
 {
 
 	ClassName object1("object1");
-	
+
 	{
 		cout << "\nWhen objects go out of scope, in this case, block scope, the destructor is called." << endl;
 		ClassName object2("object2");
@@ -35,15 +35,17 @@ int main()
 		ClassName object4("object4");
 	}
 	cout << "The destructor is called in the reverse order the constructor is called.\n" << endl;
-	
+
 	cout << "\nThe detsructor can also be called by using the 'delete' operator." << endl;
 	ClassName* ptr = new ClassName("ptr");
 	delete ptr;
-	
-	cout << "\nThe destructor can also be called explicitly, but this could cause to destructor to be called twice, being called again when the object goes out of scope." << endl;
+
+	cout << "\n" << endl;
 	ClassName object5("object5");
-	object5.~ClassName();
-	
+	cout << "The destructor can also be called explicitly, by using the command:\nobject5.~ClassName();\nbut this shouldn't normally be done\nas it could cause to destructor to be called twice, being called again when the object goes out of scope." << endl;
+	//object5.~ClassName();
+	//Explicit call to the destructor
+
 	cout << "\nWhen the program ends, any other objects created will have their destructor called too as they go out of scope." << endl;
 	return 0;
 }
